@@ -20,12 +20,15 @@ st.write("Données testées écrites dans Google Sheets")
 
 def generer_titre(theme):
     prompt_titre = f"Générer un titre captivant pour un article de blog sur le thème : {theme}."
-    response_titre = openai_client.completions.create(
+    response_titre = openai_client.chat.completions.create(
         model="gpt-3.5-turbo",
-        prompt=prompt_titre,
+        messages=[
+        {"role": "system", "content": "Tu es le meuilleurs redacteurs de prompt"},
+        {"role": "user", "content": prompt_titre}
+      ],
         max_tokens=50
     )
-    return response_titre.choices[0].text.strip()
+    return response_titre.choices[0].message
 
 def generer_corps(theme):
     prompt_corps = f"Écrire un corps détaillé pour un article de blog sur le thème : {theme}."
