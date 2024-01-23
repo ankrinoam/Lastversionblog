@@ -19,7 +19,7 @@ st.write("Données testées écrites dans Google Sheets")
 
 def generer_titre(theme):
     prompt_titre = f"Générer un titre captivant pour un article de blog sur le thème : {theme}."
-    response_titre = openai_client.Completions.create(
+    response_titre = openai_client.completions.create(
         model="gpt-3.5-turbo",
         prompt=prompt_titre,
         max_tokens=50
@@ -28,7 +28,7 @@ def generer_titre(theme):
 
 def generer_corps(theme):
     prompt_corps = f"Écrire un corps détaillé pour un article de blog sur le thème : {theme}."
-    response_corps = openai_client.Completions.create(
+    response_corps = openai_client.completions.create(
         model="gpt-3.5-turbo",
         prompt=prompt_corps,
         max_tokens=2000
@@ -37,7 +37,7 @@ def generer_corps(theme):
 
 def generer_conclusion(theme):
     prompt_conclusion = f"Formuler une conclusion concise et pertinente pour un article de blog sur le thème : {theme}."
-    response_conclusion = openai_client.Completions.create(
+    response_conclusion = openai_client.completions.create(
         model="gpt-3.5-turbo",
         prompt=prompt_conclusion,
         max_tokens=200
@@ -70,3 +70,4 @@ conclusion_modifie = st.text_area("Modifier la conclusion ici", st.session_state
 if st.button('Sauvegarder les modifications'):
     sauvegarder_contenu_google_sheet(theme, titre_modifie, corps_modifie, conclusion_modifie)
     st.success("Le contenu modifié a été sauvegardé avec succès dans Google Sheets.")
+
