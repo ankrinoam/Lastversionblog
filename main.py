@@ -28,7 +28,7 @@ def generer_titre(theme):
       ],
         max_tokens=50
     )
-    return response_titre.choices[0].message.content.strip()
+    return response_titre.choices[0].message.content
 
 def generer_corps(theme):
     prompt_corps = f"Écrire un corps détaillé pour un article de blog sur le thème : {theme}."
