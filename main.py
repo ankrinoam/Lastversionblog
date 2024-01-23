@@ -6,7 +6,10 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import streamlit as st
 from openai import OpenAI
-print("API Key",os.environ['OPENAI_API_KEY'])
+print("API Key-----------------------")
+print(os.environ['OPENAI_API_KEY'])
+print("API Key-----------------------")
+
 openai_client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
 
 # Local application/library specific imports
