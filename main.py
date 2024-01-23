@@ -28,25 +28,31 @@ def generer_titre(theme):
       ],
         max_tokens=50
     )
-    return response_titre.choices[0].message
+    return response_titre.choices[0].message.content.strip()
 
 def generer_corps(theme):
     prompt_corps = f"Écrire un corps détaillé pour un article de blog sur le thème : {theme}."
-    response_corps = openai_client.completions.create(
+    response_corps = openai_client.chat.completions.create(
         model="gpt-3.5-turbo",
-        prompt=prompt_corps,
+        messages=[
+        {"role": "system", "content": "Tu es le meuilleurs redacteurs de prompt"},
+        {"role": "user", "content": prompt_corps}
+      ],
         max_tokens=2000
     )
-    return response_corps.choices[0].text.strip()
+    return response_corps.choices[0].message.content
 
 def generer_conclusion(theme):
     prompt_conclusion = f"Formuler une conclusion concise et pertinente pour un article de blog sur le thème : {theme}."
-    response_conclusion = openai_client.completions.create(
+    response_conclusion = openai_client.chat.completions.create(
         model="gpt-3.5-turbo",
-        prompt=prompt_conclusion,
+        messages=[
+        {"role": "system", "content": "Tu es le meuilleurs redacteurs de prompt"},
+        {"role": "user", "content": prompt_conclusion}
+      ],
         max_tokens=200
     )
-    return response_conclusion.choices[0].text.strip()
+    return response_conclusion.choices[0].message.content
 
 def sauvegarder_contenu_google_sheet(theme, titre, corps, conclusion):
     data = [theme, titre, corps, conclusion]
