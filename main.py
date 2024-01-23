@@ -8,8 +8,6 @@ import streamlit as st
 from openai import OpenAI
 
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
-if OPENAI_API_KEY is None:
-    raise ValueError("The 'OPENAI_API_KEY' environment variable is not set.")
 openai_client = OpenAI(api_key=OPENAI_API_KEY)
 # Local application/library specific imports
 
