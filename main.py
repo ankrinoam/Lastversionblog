@@ -8,7 +8,7 @@ import streamlit as st
 from openai import OpenAI
 
 # Initialisez le client OpenAI avec la nouvelle méthode
-openai_client = OpenAI(api_key='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')
+openai_client = OpenAI(api_key='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')
 
 scope = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/spreadsheets',
          "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
