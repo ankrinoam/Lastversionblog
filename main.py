@@ -7,7 +7,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 import streamlit as st
 from openai import OpenAI
 
-OPENAI_API_KEY = os.getenv('OPENAI_SECRET')
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 if OPENAI_API_KEY is None:
     raise ValueError("The 'OPENAI_SECRET' environment variable is not set.")
 openai_client = OpenAI(api_key=OPENAI_SECRET)
