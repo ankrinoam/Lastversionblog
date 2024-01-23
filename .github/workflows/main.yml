@@ -19,6 +19,6 @@ jobs:
 
     - name: Run script
       env:
-        OPENAI_SECRET: ${{ secrets.OPENAI_SECRET }}
+        OPENAI_SECRET: ${{ secrets.OPENAI_API_KEY }}
         GOOGLE_SHEETS_CREDS_JSON: ${{ secrets.GOOGLE_SHEETS_CREDS_JSON }}
       run: python main.py
