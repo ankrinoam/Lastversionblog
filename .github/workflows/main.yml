@@ -5,20 +5,19 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    # Ajoutez d'autres étapes nécessaires ici
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.x'
-        
-    - name: Install dependencies
-      run: pip install -r requirements.txt
+        python-version: '3.8' # ou toute autre version nécessaire
 
     - name: Run script
-      env:
-        OPENAI_SECRET: ${{ secrets.OPENAI_API_KEY }}
-        GOOGLE_SHEETS_CREDS_JSON: ${{ secrets.GOOGLE_SHEETS_CREDS_JSON }}
       run: python main.py
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
