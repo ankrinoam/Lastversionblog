@@ -1,10 +1,11 @@
-from openai import OpenAI
-import gspread as gspread
-import streamlit as st
+# Standard library imports
 import os
 
-# Configuration de la clé API OpenAI
+# Related third party imports
+import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+import streamlit as st
+from openai import OpenAI
 
 # Initialisez le client OpenAI avec la nouvelle méthode
 openai_client = OpenAI(api_key='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')
