@@ -7,10 +7,10 @@ from oauth2client.service_account import ServiceAccountCredentials
 import streamlit as st
 from openai import OpenAI
 
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+OPENAI_API_KEY = os.getenv('OPENAI_SECRET')
 if OPENAI_API_KEY is None:
-    raise ValueError("The 'OPENAI_API_KEY' environment variable is not set.")
-openai_client = OpenAI(api_key=OPENAI_API_KEY)
+    raise ValueError("The 'OPENAI_SECRET' environment variable is not set.")
+openai_client = OpenAI(api_key=OPENAI_SECRET)
 # Local application/library specific imports
 
 scope = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/spreadsheets',
