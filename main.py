@@ -19,8 +19,7 @@ scope = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/au
 creds = ServiceAccountCredentials.from_json_keyfile_name('index.json', scope)
 client = gspread.authorize(creds)
 sheet = client.open("BlogPhilippe").sheet1
-sheet.append_row(["Test", "Ceci est un test"])
-st.write("Données testées écrites dans Google Sheets")
+
 
 def generer_titre(theme):
     prompt_titre = f"Générer un titre captivant pour un article de blog sur le thème : {theme}."
